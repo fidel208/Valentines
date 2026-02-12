@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poller+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  margin: 0;
+  background: linear-gradient(to right, #f76ef7, #f1ceef);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.first {
+    text-align: center;
+    max-width: 1000px;
+}
+
+
+img {
+  width: 50%;
+  max-width: 250px;
+  margin-bottom: 20px;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+h1 {
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #d6336c;
+  font-size: 2rem;
+  margin: 10px;
+}
+
+.btn-container {
+  margin-top: 30px;
+  position: relative;
+  height: 60px;
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: all 0.1s ease;
+}
+
+#yes {
+  background-color: #ff4d6d;
+  color: white;
+}
+
+#no {
+  background-color: #fff;
+  color: #ff4d6d;
+  position: absolute;
+}
+
+#message {
+  margin-top: 30px;
+  color: #fff;
+  font-size: 1.5rem;
+  display: none;
+  position: relative;
+  z-index: 2;
+  padding: 0 10px;
+}
+
+#playAudioBtn {
+  display: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #ff4d6d;
+  color: #fff;
+  cursor: pointer;
+}
+
+.heart {
+  position: absolute;
+  color: red;
+  font-size: 20px;
+  animation: floatHeart 4s linear infinite;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-600px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  img {
+    width: 50%;
+    max-width: 180px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+  #message {
+    font-size: 1.2rem;
+  }
+  #playAudioBtn {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+@media (max-width: 480px) {
+  img {
+    width: 60%;
+    max-width: 150px;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+  #message {
+    font-size: 1rem;
+  }
+  #playAudioBtn {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+  .btn-container {
+    height: 50px;
+  }
+}
+.video-wrapper {
+  display: none;
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  margin-top: 20px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
