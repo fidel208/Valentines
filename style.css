@@ -1,30 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poller+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  background: linear-gradient(to right, #f76ef7, #f1ceef);
-  height: 100vh;
+  background: linear-gradient(to right, #ff04ff, #f38eee);
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  position: relative;
   font-family: "Exo 2", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+main {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
 }
 
 .first {
-  text-align: center;
-  max-width: 1000px;
+  position: relative;
 }
 
 img {
-  width: 50%;
+  width: 70%;
   max-width: 250px;
-  margin-bottom: 10px;
-  animation: float 2s ease-in-out infinite;
+  margin-bottom: 15px;
+  animation: float 2.5s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -33,25 +39,36 @@ img {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
   }
 }
 
 h1 {
   color: #ffffff;
   text-shadow: 2px 2px 5px #d6336c;
-  font-size: 2rem;
-  margin: 10px;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  margin: 10px 0;
+}
+
+.btn-container {
+  position: relative;
+  height: 70px;
+  margin-top: 15px;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 12px 25px;
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  margin: 0 10px;
-  transition: all 0.1s ease;
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 5px rgb(255, 255, 255);
+  margin: 10px;
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 #yes {
@@ -60,47 +77,55 @@ button {
 }
 
 #no {
-  background-color: #fff;
+  background-color: white;
   color: #ff4d6d;
   position: absolute;
 }
 
 #message {
-  margin-top: 10px;
+  margin-top: 20px;
   color: #fff;
-  font-size: 1.5rem;
   display: none;
-  position: relative;
-  z-index: 2;
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  line-height: 1.6;
+  padding: 10px;
 }
 
 .words {
-  margin-top: 5px;
-  padding: 0;
+  margin-top: 10px;
 }
 
 .second {
-  text-align: center;
+  margin-top: 30px;
 }
 
 #playAudioBtn {
   display: none;
-  margin-top: 10px;
-  font-size: 1.2rem;
-  border-radius: 10px;
+  margin-top: 15px;
+  padding: 12px 25px;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  border-radius: 12px;
   border: none;
   background-color: #ff4d6d;
   color: #fff;
   cursor: pointer;
 }
 
+#videoContainer iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+}
+
 .heart {
-  position: absolute;
+  position: fixed;
   color: red;
-  font-size: 20px;
-  animation: floatHeart 4s linear infinite;
-  user-select: none;
+  animation: floatHeart 4s linear forwards;
   pointer-events: none;
+}
+
+#agree-GIF {
+  display: none;
 }
 
 @keyframes floatHeart {
@@ -109,11 +134,26 @@ button {
     opacity: 1;
   }
   100% {
-    transform: translateY(-600px) scale(1.5);
+    transform: translateY(-100vh) scale(1.5);
     opacity: 0;
   }
 }
 
-#agree-GIF {
-  display: none;
+@media (max-width: 480px) {
+  img {
+    width: 85%;
+  }
+
+  .btn-container {
+    height: 100px;
+  }
+
+  #videoContainer iframe {
+    height: 220px;
+  }
+}
+
+
+#heart {
+  color: red;
 }

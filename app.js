@@ -5,11 +5,12 @@ const message = document.getElementById("message");
 const playAudioBtn = document.getElementById("playAudioBtn");
 const videoContainer = document.getElementById("videoContainer");
 const bgMusic = document.getElementById("bgMusic");
-const first = document.getElementById("first")
+const first = document.getElementById("first");
 const agreeButtons = document.getElementById("yesno-btn");
 const askMessage = document.getElementById("ask-message");
 const askGif = document.getElementById("ask-GIF");
 const agreeGif = document.getElementById("agree-GIF");
+const noChoice = document.getElementById("no-choice");
 
 window.addEventListener("load", () => {
   bgMusic.play().catch(() => {
@@ -26,11 +27,12 @@ window.addEventListener("load", () => {
 
 function moveNoButton() {
   const containerRect = container.getBoundingClientRect();
+
   const maxX = containerRect.width - noBtn.offsetWidth;
   const maxY = containerRect.height - noBtn.offsetHeight;
 
-  const randomX = Math.random() * maxX;
-  const randomY = Math.random() * maxY;
+  const randomX = Math.max(0, Math.random() * maxX);
+  const randomY = Math.max(0, Math.random() * maxY);
 
   noBtn.style.left = randomX + "px";
   noBtn.style.top = randomY + "px";
