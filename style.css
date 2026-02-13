@@ -16,15 +16,14 @@ body {
 }
 
 .first {
-    text-align: center;
-    max-width: 1000px;
+  text-align: center;
+  max-width: 1000px;
 }
-
 
 img {
   width: 50%;
   max-width: 250px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   animation: float 2s ease-in-out infinite;
 }
 
@@ -43,17 +42,6 @@ h1 {
   text-shadow: 2px 2px 5px #d6336c;
   font-size: 2rem;
   margin: 10px;
-}
-
-.btn-container {
-  margin-top: 30px;
-  position: relative;
-  height: 60px;
-  width: 80%;
-  max-width: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 button {
@@ -78,19 +66,26 @@ button {
 }
 
 #message {
-  margin-top: 30px;
+  margin-top: 10px;
   color: #fff;
   font-size: 1.5rem;
   display: none;
   position: relative;
   z-index: 2;
-  padding: 0 10px;
+}
+
+.words {
+  margin-top: 5px;
+  padding: 0;
+}
+
+.second {
+  text-align: center;
 }
 
 #playAudioBtn {
   display: none;
-  margin-top: 20px;
-  padding: 10px 20px;
+  margin-top: 10px;
   font-size: 1.2rem;
   border-radius: 10px;
   border: none;
@@ -119,63 +114,6 @@ button {
   }
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  img {
-    width: 50%;
-    max-width: 180px;
-  }
-  h1 {
-    font-size: 1.5rem;
-  }
-  button {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-  #message {
-    font-size: 1.2rem;
-  }
-  #playAudioBtn {
-    font-size: 1rem;
-    padding: 8px 16px;
-  }
-}
-@media (max-width: 480px) {
-  img {
-    width: 60%;
-    max-width: 150px;
-  }
-  h1 {
-    font-size: 1.2rem;
-  }
-  button {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
-  #message {
-    font-size: 1rem;
-  }
-  #playAudioBtn {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
-  .btn-container {
-    height: 50px;
-  }
-}
-.video-wrapper {
+#agree-GIF {
   display: none;
-  position: relative;
-  width: 90%;
-  max-width: 600px;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  margin-top: 20px;
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
 }

@@ -5,11 +5,14 @@ const message = document.getElementById("message");
 const playAudioBtn = document.getElementById("playAudioBtn");
 const videoContainer = document.getElementById("videoContainer");
 const bgMusic = document.getElementById("bgMusic");
+const first = document.getElementById("first")
+const agreeButtons = document.getElementById("yesno-btn");
+const askMessage = document.getElementById("ask-message");
+const askGif = document.getElementById("ask-GIF");
+const agreeGif = document.getElementById("agree-GIF");
 
-// Try autoplay immediately
 window.addEventListener("load", () => {
   bgMusic.play().catch(() => {
-    // If autoplay fails, wait for user interaction
     const startMusic = () => {
       bgMusic.play();
       document.removeEventListener("click", startMusic);
@@ -21,7 +24,6 @@ window.addEventListener("load", () => {
   });
 });
 
-// Move No button randomly
 function moveNoButton() {
   const containerRect = container.getBoundingClientRect();
   const maxX = containerRect.width - noBtn.offsetWidth;
@@ -40,8 +42,11 @@ noBtn.addEventListener("touchstart", function (e) {
   moveNoButton();
 });
 
-// Yes button click
 yesBtn.addEventListener("click", () => {
+  agreeButtons.style.display = "none";
+  askMessage.style.display = "none";
+  askGif.style.display = "none";
+  agreeGif.style.display = "inline";
   message.style.display = "block";
   playAudioBtn.style.display = "inline-block";
 
@@ -49,17 +54,17 @@ yesBtn.addEventListener("click", () => {
   setTimeout(() => clearInterval(heartInterval), 2000);
 });
 
-// When she clicks the special song button
 playAudioBtn.addEventListener("click", () => {
-  // Stop background music
   bgMusic.pause();
-  bgMusic.currentTime = 0; // optional: reset
+  bgMusic.currentTime = 0;
 
-  // Hide button and show video container
+  first.style.display = "none";
   playAudioBtn.style.display = "none";
   videoContainer.style.display = "block";
 
-  // Inject YouTube iframe
+  let heartInterval = setInterval(createHeart, 200);
+  setTimeout(() => clearInterval(heartInterval), 2000);
+
   videoContainer.innerHTML = `
     <iframe width="560" height="315" src="https://www.youtube.com/embed/MfHAt5F2uhk?si=YbfqIbeRrvyzlwFf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   `;
